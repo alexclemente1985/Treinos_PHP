@@ -19,13 +19,12 @@
         exit();
     }
 
-    $sql = 'UPDATE videos SET url = :url , titulo = :title WHERE id = :id;';
-    $statement = $pdo -> prepare($sql);
-    $statement -> bindValue(':id', $id, PDO::PARAM_INT);
-    $statement -> bindValue(':url', $url);
-    $statement -> bindValue(':title', $titulo);
+    $repository = new \Alura\Mvc\Repository\VideoRepository($pdo);
+    $video = new \Alura\Mvc\Entity\Video($url,$titulo);
+    $video->setId($id);
+    $repoReturn = $repository->update($video);
 
-    if ($statement -> execute() === false){
+    if ($repoReturn === false){
         header('Location: /?sucesso=0');
     } else {
         header('Location: /?sucesso=1');

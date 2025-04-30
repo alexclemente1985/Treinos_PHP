@@ -22,3 +22,20 @@
 - Uso repetido de `if` no index.php para o roteamento, ao invés de `require` para cada `PATH_INFO` com `.php` no final foi devido ao intuito de se evitar vulnerabilidade grave 
     - [Null bytes related issues](https://www.php.net/security.filesystem.nullbytes)
 
+
+## Composer
+
+### Criando pasta vendor com autoload
+
+- Criar arquivo `composer.json` na raiz do projeto, com as informações necessárias;
+    ```{
+        "autoload": {
+            "psr-4": {
+                "Alura\\Mvc\\": "src/"
+            }
+        }
+    }```
+
+- No terminal: `composer dumpautoload`;
+- No index.php de entrada, fazer o `require ` do `vendor\autoload`:
+    `require_once __DIR__ . '/../vendor/autoload.php';`

@@ -16,13 +16,11 @@
         exit();
       }
 
-    $sql = 'INSERT INTO videos (url, titulo) VALUES (?,?)';
-    $statement = $pdo -> prepare($sql);
+    $repository = new \Alura\Mvc\Repository\VideoRepository($pdo);
+    $repoReturn = $repository->add(new \Alura\Mvc\Entity\Video($url, $titulo));
 
-    $statement -> bindValue(1, $url);
-    $statement -> bindValue(2, $titulo);
 
-    if ($statement-> execute() === false){
+    if ($repoReturn === false){
         header('Location: /?sucesso=0');
     } else {
         header('Location: /?sucesso=1');
