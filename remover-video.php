@@ -3,11 +3,13 @@
     $pdo = new PDO("sqlite:$dbPath");
 
     $id = $_GET['id'];
-    $sql = 'DELETE FROM videos WHERE id = ?';
-    $statement = $pdo -> prepare($sql);
-    $statement -> bindValue(1, $id);
+    
+   
 
-    if ($statement -> execute() === false){
+    $repository = new \Alura\Mvc\Repository\VideoRepository($pdo);
+    $repoReturn = $repository->remove($id);
+
+    if ($repoReturn === false){
         header('Location: /?sucesso=0');
     } else {
         header('Location: /?sucesso=1');
