@@ -7,8 +7,6 @@
 
         public function __construct(string $modelo, int $potenciaMotor)
         {
-
-        echo "carro $modelo e potencia $potenciaMotor";
             $this->modelo = $modelo;
             $this->motor = new Motor($potenciaMotor);
         }
