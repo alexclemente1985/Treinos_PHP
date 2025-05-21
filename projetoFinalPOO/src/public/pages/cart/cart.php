@@ -1,7 +1,7 @@
 <section class="car">
     <div class="container">
         <div class="box-6">
-            <form action="">
+            <form action="index.php?arquivo=cartController&metodo=finishCart" method="POST">
                 <table class="car-table">
                     <thead>
                         <tr>
@@ -15,27 +15,41 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            if(isset($_SESSION['cart'])):
+                                foreach($_SESSION['cart'] as $key=>$value):
+                                    
+                        ?>
                         <tr class="zebra">
-                            <td class="fonte12 pd-5 txt-c">1</td>
-                            <td class="fonte12 pd-5 txt-c">Notebook</td>
-                            <td class="fonte12 pd-5 txt-c">2</td>
-                            <td class="fonte12 pd-5 txt-c">1000.00</td>
+                            <td class="fonte12 pd-5 txt-c"><?=$_SESSION['cart'][$key]['id'];?></td>
+                            <td class="fonte12 pd-5 txt-c"><?=$_SESSION['cart'][$key]['descricao'];?></td>
                             <td class="fonte12 pd-5 txt-c">
-                                <img src="../../../img//notebook.png" alt="" class="logo-40">
+                                <input type="number" class="qtde" rel="<?=$key;?>" value="<?=$_SESSION['cart'][$key]['qtde'];?>">                                
                             </td>
-                            <td class="fonte12 pd-5 txt-c">1000.00</td>
+                            <td class="fonte12 pd-5 txt-c"><?=$_SESSION['cart'][$key]['preco'];?></td>
                             <td class="fonte12 pd-5 txt-c">
-                                <a href="" class="txt-c flex justify-center item-centro"></a>
-                                <i class="fa-solid fa-trash-can fonte22 fnc-error"></i>
+                                <img src=<?=$_SESSION['cart'][$key]['imagem'];?> alt="" class="logo-40 mg-auto">
+                            </td>
+                            <td class="fonte12 pd-5 txt-c"><?=(float)$_SESSION['cart'][$key]['preco']*(float)$_SESSION['cart'][$key]['qtde'];?></td>
+                            <td class="fonte12 pd-5 txt-c">
+                                <a href="index.php?arquivo=cartController&metodo=refreshCart&linha=<?=$key;?>" class="txt-c flex justify-center item-centro">
+                                    <i class="fa-solid fa-trash-can fonte22 fnc-error"></i>
+                                </a>
+                                
                             </td>
                         </tr>
+                        <?php endforeach;?>
                         <tr>
                             <td colspan="6">
                                 <label for="">Selecionar Clientes</label>
                                 <select name="cliente" id="" class="mg-b-2">
                                     <option value="">Selecione um cliente</option>
-                                    <option value="">Ciclano</option>
-                                    <option value="">Fulano</option>
+                                    <?php
+                                        if(isset($clients) && count($clients) > 0):
+                                            foreach($clients as $client):
+                                    ?>
+                                        <option value="<?=$client->getId()?>"><?=$client->getName()?></option>
+                                    <?php endforeach; endif;?>
                                 </select>
 
                                 <label for="">Forma de pagamento</label>
@@ -49,13 +63,40 @@
                         </tr>
                         <tr>
                             <td colspan="7">
-                                <a href="" class="btn-100 bg-p1-amarelo mg-b-1 fnc-branco fonte14 fw-800">Comprar Mais</a>
+                                <a href="/" class="btn-100 bg-p1-amarelo mg-b-1 fnc-branco fonte14 fw-800">Comprar Mais</a>
                                 <input type="submit" value="Finalizar" class="btn-100 bg-p1-amarelo fnc-branco">
                             </td>
                         </tr>
+                        <?php else:?>
+                            <tr>
+                            <td colspan="7">
+                                <h6>Carrinho vazio!</h6>
+                            </td>
+                        </tr>
+                        <?php endif;?>
                     </tbody>
                 </table>
             </form>
         </div>
     </div>
 </section>
+
+<script type="text/javascript" src="lib/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        $('.qtde').change(function(){
+            var line = $(this).attr('rel');
+            var qtde = $(this).val();
+
+            $.ajax({
+                type:"POST",
+                url:"index.php?arquivo=cartController&metodo=refreshCart",
+                data:"qtde="+qtde+"&linha="+line,
+                success: function(){
+                    location.reload();
+
+                }
+            })
+        })
+    })
+</script>

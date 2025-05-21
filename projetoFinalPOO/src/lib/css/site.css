@@ -18,3 +18,26 @@ footer{
     width: 100%;
     height: 60px;
 }
+
+.car-table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.img-prod{
+    transition: all .40s ease-in-out;
+}
+
+.img-prod:hover{
+    transform: scale(1.1);
+}
+
+.car-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.qtde{
+    width: 60px;
+    padding-left: 15px;
+}

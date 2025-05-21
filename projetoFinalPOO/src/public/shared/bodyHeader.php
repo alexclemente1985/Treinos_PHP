@@ -10,7 +10,16 @@
                 <li>
                     <a href="index.php?arquivo=cartController&metodo=insertCart" class="flex justify-end item-centro mg-l-1">
                         <i class="fa-solid fa-cart-shopping fonte26 fnc-preto-1"></i>
-                        <span class="balao flex justify-center item-centro  fnc-branco">0</span>
+                        <span class="balao flex justify-center item-centro  fnc-branco">
+                            <?php
+                                if(isset($_SESSION['cart'])){
+                                    echo $_SESSION['productQuantity'];
+                                }
+                                else{
+                                    echo '0';
+                                }
+                            ?>
+                        </span>
                     </a>
                 </li>
             </ul>
