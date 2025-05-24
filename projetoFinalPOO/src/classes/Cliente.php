@@ -47,7 +47,7 @@ class Cliente{
         return $this->generateData();
     }
 
-    public function getClientByID(int $id){
+    public function getClientByID(string $id){
         $clientes = $this->generateData();
 
         foreach($clientes as $cliente){

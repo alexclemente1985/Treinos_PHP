@@ -1,6 +1,10 @@
 <?php
-require_once "classes/Produto.php";
 require_once "classes/Cliente.php";
+require_once "classes/Produto.php";
+
+require_once "classes/CartaoCredito.php";
+require_once "classes/Boleto.php";
+require_once "classes/PayPal.php";
 require_once "classes/abstracts/Notification.php";
 class CartController extends Notification{
     public function insertCart(){
@@ -118,14 +122,18 @@ class CartController extends Notification{
                     $paymentType = new CartaoCredito();
                     break;
                 endswitch;
-
+            
+            #$_SESSION['selectedClient'] = $selectedClient;
+            #$_SESSION['paymentType'] = $$paymentType->;
+            
+            require_once "public/components/finishCartComponent.php";
 
         }
 
-        unset($_SESSION['cart']);
-        unset($_SESSION['productQuantity']);
+        #unset($_SESSION['cart']);
+        #unset($_SESSION['productQuantity']);
 
-        echo $this->showMessage("Carrinho finalizado com sucesso");
+        #echo $this->showMessage("Carrinho finalizado com sucesso");
 
     }
 }
