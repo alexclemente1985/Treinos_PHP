@@ -111,7 +111,7 @@ class CartController extends Notification{
             $selectedClient = (new Cliente())->getClientByID($clientId);
 
             $paymentType = null;
-            switch($paymentType):
+            switch($paymentTypeId):
                 case "1":
                     $paymentType = new Boleto();
                     break;

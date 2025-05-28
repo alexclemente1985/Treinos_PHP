@@ -1,5 +1,8 @@
 <?php
 function getLink(string $arquivo, string $metodo){
+    unset($_SESSION['cart']);
+    unset($_SESSION['productQuantity']);
+    
     if(strlen($arquivo) > 0 && strlen($metodo) > 0){
         return "index.php?arquivo={$arquivo}&metodo={$metodo}";
     }

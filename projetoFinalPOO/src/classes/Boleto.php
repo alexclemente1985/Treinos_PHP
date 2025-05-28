@@ -3,9 +3,19 @@
 require_once "classes/abstracts/Notification.php";
 
 class Boleto extends Notification{
+
     public function pagar(float $value)
     {
-        echo "Pagamento no valor de {$value} realizado via boleto.";
+        $msg = "Pagamento no valor de R$ ".number_format($value, 2, ',','.')." realizado via boleto.";
+        return $this->showMessage($msg);
+    }
+
+    public function getPaymentType(): string{
+        return "Boleto";
+    }
+
+    public function getClassName(){
+        return static::class;
     }
 }
 ?>

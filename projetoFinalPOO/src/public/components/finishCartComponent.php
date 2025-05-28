@@ -1,4 +1,7 @@
 <?php
+    function finishCart(string $paymentType, float $total): string{
+        return "index.php?arquivo=".$paymentType."&metodo=pagar&parametro=".$total;
+    }
 ?>
 <div class="container flex justify-center">
     <div class="box 6 pd-10 bg-branco radius mg-t-10 wd-50">
@@ -38,7 +41,16 @@
                         </div>
                         
                     <?php endforeach; endif;?>
+                    <div class="box-12">
+                        <h4 class="txt-d fonte16 poppins-black fnc-cinza">Total: <span class="poppins-medium">R$ <?= number_format($total, 2, ',', '.')?></span></h4>
+                    </div>
+                    <div class="box-12 mg-t-2 bg-p1-verde2 radius pd-10">
+                        <p class="poppins-medium txt-c fnc-verde">Forma de pagamento: <?= $paymentType->getPaymentType()?></p>
+                    </div>
                 </div>
+            </div>
+            <div class="box-12 mg-t-2">
+                <a href="<?= finishCart($paymentType->getClassName(), $total);?>" class="btn-100 bg-p1-amarelo fnc-branco">Finalizar carrinho</a>
             </div>
         </div>
     </div>
