@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Casa web - imobiliária online</title>
-
+        <script src="lib/js/animations.js" type="module"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>

@@ -121,6 +121,38 @@
                     <div class="box-3 txt-c fonte16">300</i></div>
                 </div>
             </div>
+        </div>ß
+    </div>
+</section>
+<div class="limpar"></div>
+<section class="depoimentos mg-t-10">
+    <div class="container">
+        <div class="box-12 bg-preto-azulado-escuro flex justify-center item-centro pd-40">
+            <div class="carousel">
+                <div class="slides">
+                    <div class="slide">
+                        <p class="box-4 fonte16 fnc-branco txt-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum convallis dui, ut mollis libero iaculis nec. Etiam vel dui et felis feugiat convallis. Suspendisse eros mi, consectetur sed sagittis et, commodo eget elit. Vivamus id massa vitae ligula tincidunt finibus. Praesent a imperdiet est. Nulla gravida vestibulum justo, et bibendum nisl suscipit quis. Etiam ac finibus mi. Integer finibus nibh metus, quis consectetur purus blandit non. Vivamus pulvinar dolor eget interdum sagittis. Aenean quis ipsum at odio ultrices sollicitudin.</p>
+                        <cite class="fonte12 fnc-vermelho-claro fw-600">Fulano de Tal, São Paulo</cite>
+                    </div>
+
+                    <div class="slide">
+                        <p class="box-4 fonte16 fnc-branco txt-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum convallis dui, ut mollis libero iaculis nec. Etiam vel dui et felis feugiat convallis. Suspendisse eros mi, consectetur sed sagittis et, commodo eget elit. Vivamus id massa vitae ligula tincidunt finibus. Praesent a imperdiet est. Nulla gravida vestibulum justo, et bibendum nisl suscipit quis. Etiam ac finibus mi. Integer finibus nibh metus, quis consectetur purus blandit non. Vivamus pulvinar dolor eget interdum sagittis. Aenean quis ipsum at odio ultrices sollicitudin.</p>
+                        <cite class="fonte12 fnc-vermelho-claro fw-600">Sicrano de Tal, Santa Catarina</cite>
+                    </div>
+
+                    <div class="slide">
+                        <p class="box-4 fonte16 fnc-branco txt-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum convallis dui, ut mollis libero iaculis nec. Etiam vel dui et felis feugiat convallis. Suspendisse eros mi, consectetur sed sagittis et, commodo eget elit. Vivamus id massa vitae ligula tincidunt finibus. Praesent a imperdiet est. Nulla gravida vestibulum justo, et bibendum nisl suscipit quis. Etiam ac finibus mi. Integer finibus nibh metus, quis consectetur purus blandit non. Vivamus pulvinar dolor eget interdum sagittis. Aenean quis ipsum at odio ultrices sollicitudin.</p>
+                        <cite class="fonte12 fnc-vermelho-claro fw-600">Beltrano de Tal, Minas Gerais</cite>
+                    </div>
+
+                    <div class="slide">
+                        <p class="box-4 fonte16 fnc-branco txt-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum convallis dui, ut mollis libero iaculis nec. Etiam vel dui et felis feugiat convallis. Suspendisse eros mi, consectetur sed sagittis et, commodo eget elit. Vivamus id massa vitae ligula tincidunt finibus. Praesent a imperdiet est. Nulla gravida vestibulum justo, et bibendum nisl suscipit quis. Etiam ac finibus mi. Integer finibus nibh metus, quis consectetur purus blandit non. Vivamus pulvinar dolor eget interdum sagittis. Aenean quis ipsum at odio ultrices sollicitudin.</p>
+                        <cite class="fonte12 fnc-vermelho-claro fw-600">Caboclo de Tal, Sergipe</cite>
+                    </div>
+                </div>
+                <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
         </div>
     </div>
 </section>

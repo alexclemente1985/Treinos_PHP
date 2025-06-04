@@ -71,22 +71,22 @@
     overflow: hidden;
 }
 
-.slaides {
+.slides {
     display: flex;
     transition: transform .5s ease-in-out;
 }
 
-.slaide {
+.slide {
     min-width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     opacity: 0;
-    animation: slaid-fade 4s ease-in-out infinite;
+    animation: slide-fade 4s ease-in-out infinite;
 }
 
-@keyframes slaid-fade {
+@keyframes slide-fade {
 
     0%,
     100% {
