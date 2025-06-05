@@ -22,11 +22,11 @@
                 <div class="box-6">
                     <nav class="wd-100 mg-t-1">
                         <ul class="flex justify-end">
-                            <li class="mg-l-3"><a href="http://" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">início</a></li>
-                            <li class="mg-l-3"><a href="http://" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">início</a></li>
-                            <li class="mg-l-3"><a href="http://" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">início</a></li>
-                            <li class="mg-l-3"><a href="http://" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">início</a></li>
-                            <li class="mg-l-3"><a href="http://" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">início</a></li>
+                            <li class="mg-l-3"><a href="#inicio" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Início</a></li>
+                            <li class="mg-l-3"><a href="#comprar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Comprar</a></li>
+                            <li class="mg-l-3"><a href="#alugar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Alugar</a></li>
+                            <li class="mg-l-3"><a href="#depoimentos" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Depoimentos</a></li>
+                            <li class="mg-l-3"><a href="#contato" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Contato</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -35,5 +35,6 @@
             <div class="barra bg-vermelho"></div>
         </header>
         <div class="limpar"></div>
+        <div class="esconde"></div>
     </body>
 </html>

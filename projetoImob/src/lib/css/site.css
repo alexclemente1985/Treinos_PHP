@@ -141,7 +141,7 @@ textarea {
 label {
     color: #fff;
 }
-
+/* Customização do elemento radio -> appearance none para apagar e definir propriedades e css do checked*/
 .contato-form form input[type="radio"] {
     transform: scale(.5);
     margin-right: 10px;
