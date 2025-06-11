@@ -1,52 +1,27 @@
-<div class="wd-100">
+<section>
     <div class="box-8">
-        <i class="fa-solid fa-user-tie fonte30 mg-r-1"></i>
-        <h2>Proprietário</h2>
+        <h2 class="fonte26"><i class="fa-solid fa-user-tie fonte30 mg-r-1"></i>Cadastrar Proprietário</h2>
     </div>
-    <div class="box-4 flex justify-center item-centro">
-        <div class="radius-start wd-30 bg-azul-escuro pd-10 fnc-branco fonte16">
-            <i class="fa-solid fa-plus"></i>
+    <div class="limpar"></div>
+    <form action="" class="box-12 mg-t-8">
+        <div class="box-8">
+            <label for="" class="fnc-preto-azulado">Nome</label>
+            <input type="text" name="" id="">
         </div>
-        <div class="radius-end wd-60 bg-azul pd-10 fnc-branco fonte16">
-            <a class="fnc-branco" href="">Novo Cadastro</a>
+        <div class="box-4">
+            <label for="" class="fnc-preto-azulado">Contato</label>
+            <input type="text" name="" id="">
         </div>
-    </div>
-</div>
-<div class="limpar"></div>
-<table class="grid wd-100 mg-t-8">
-    <thead>
-        <tr>
-            <th class="fonte14 espaco-letra fw-bold">Nome</th>
-            <th class="fonte14 espaco-letra fw-bold">Contato</th>
-            <th class="fonte14 espaco-letra fw-bold">Sexo</th>
-            <th class="fonte14 espaco-letra fw-bold">Ativo</th>
-            <th class="fonte14 espaco-letra fw-bold">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="zebra">
-            <td class="fonte14 espaco-letra fw-300 txt-c">Sicrano</td>
-            <td class="fonte14 espaco-letra fw-300 txt-c">21 2222-3333</td>
-            <td class="fonte14 espaco-letra fw-300 txt-c">Masculino</td>
-            <td class="txt-c">
-                <?php if(1==2):?>
-                    <i class="fa-solid fa-lock fnc-error fonte14"></i>
-                <?php else: ?>
-                    <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
-                <?php endif;?>
-
-            </td>
-            <td class="flex justify-center item-centro">
-                <a href="">
-                    <i class="fa-solid fa-trash fonte14 mg-r-2 fnc-preto-azulado"></i>
-                </a>
-                <a href="">
-                    <i class="fa-solid fa-pen fonte14 fnc-azul"></i>
-                </a>
-                
-                
-            </td>
-        </tr>
-    </tbody>
-    <tfoot></tfoot>
-</table>
+        <div class="box-4">
+            <label for="" class="fnc-preto-azulado">Sexo</label>
+            <select name="sexo" id="">
+                <option value="">Escolha o sexo...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+        </div>
+        <div class="box-12 mg-t-2">
+            <input type="submit" value="Cadastrar" class="btn bg-azul fnc-branco">
+        </div>
+    </form>
+</section>

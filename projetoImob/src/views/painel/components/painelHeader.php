@@ -4,7 +4,7 @@
             <li class="mg-r-1">
                 <i class="fa-solid fa-house fonte20 fnc-preto-azulado mg-r-1"></i>
                 <a href="index.php?controller=PainelController&method=index" class="fonte14 fnc-preto-azulado">
-                            Home Painel
+                    Home Painel
                 </a>
             </li>
         </ul>

@@ -1,7 +1,8 @@
 <?php
     class PainelController{
-       
-        function index(){
+
+    function index()
+    {
             if($_GET){
                 $controller = strtolower(str_replace("Controller","",$_GET['controller']));
                 $method = strtolower($_GET['method']);
@@ -10,11 +11,9 @@
                     require_once "Views/painel/index.php";
                 }
                 else{
-                    require_once "Views/".$controller."/".$method.".php";
+                require_once "Views/painel/" . $controller . "/" . $method . ".php";
                 }
-            }
-
-            
         }
+    }
     }
 ?>

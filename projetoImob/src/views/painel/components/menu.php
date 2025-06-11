@@ -1,5 +1,5 @@
 <section>
-     <div class="box-2 bg-preto-azulado-escuro hg-full">
+    <div class="box-2 bg-preto-azulado-escuro hg-full">
         <div class="saudacao bg-branco mg-b-4 pd-20">
             <span class="fonte14">
                 <i class="fa-solid fa-handshake fnc-preto-azulado fonte16 mg-r-1"></i>
@@ -8,7 +8,7 @@
         </div>
         <ul class="pd-10">
             <li class="mg-b-2 pd-b-1">
-                <a href="index.php?controller=ProprietarioController&method=index" class="fonte14 fnc-cinza">
+                <a href="index.php?controller=ProprietarioController&method=listar" class="fonte14 fnc-cinza">
                     <i class="fa-solid fa-user-tie fonte18 mg-r-1"></i>Proprietário
                 </a>
             </li>
@@ -27,6 +27,6 @@
                     <i class="fa-solid fa-right-from-bracket fonte18 mg-r-1"></i>Logout
                 </a>
             </li>
-        </ul>    
+        </ul>
     </div>
 </section>

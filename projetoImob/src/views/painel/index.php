@@ -12,8 +12,8 @@
                 <?php require_once "Views/painel/components/painelHeader.php";?>
                 <?php if(isset($controller) && isset($method)){
                     if($controller == 'painel' && $method == 'index'){
-                        require_once "Views/".$controller."/main/".$method.".php";
-                    }                        
+                        require_once "Views/painel/main/" . $method . ".php";
+                    }
                     else{
                         require_once "Views/painel/".$controller."/".$method.".php";
                     }
