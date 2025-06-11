@@ -1,15 +1,24 @@
 <?php
-    
+    if($_GET){
+        $controller = strtolower(str_replace("Controller","",$_GET['controller']));
+        $method = strtolower($_GET['method']);
+    }
 ?>
 <section class="painel">
     <div class="container-100">
-        <div class="box-2 bg-preto-azulado-escuro hg-full">
-            <ul class="pd-10">
-                <li class="mg-b-2"><a href="http://" class="fonte14 fnc-cinza">Proprietário</a></li>
-                <li class="mg-b-2"><a href="http://" class="fonte14 fnc-cinza">Imóvel</a></li>
-                <li class="mg-b-2"><a href="http://" class="fonte14 fnc-cinza">Usuário</a></li>
-                <li class="mg-b-2"><a href="http://" class="fonte14 fnc-cinza">Logout</a></li>
-            </ul>    
-        </div>
+        <?php require_once "Views/painel/components/menu.php";?>
+        <section class="carregamento">
+            <div class="box-10 bg-branco pb-b-4">
+                <?php require_once "Views/painel/components/painelHeader.php";?>
+                <?php if(isset($controller) && isset($method)){
+                    if($controller == 'painel' && $method == 'index'){
+                        require_once "Views/".$controller."/main/".$method.".php";
+                    }                        
+                    else{
+                        require_once "Views/painel/".$controller."/".$method.".php";
+                    }
+                }?>
+            </div>
+        </section>
     </div>
 </section>
