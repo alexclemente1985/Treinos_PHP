@@ -1,6 +1,7 @@
 <?php
-require_once "models/Conexao.php";
 require_once "models/Proprietario.php";
+require_once "models/Conexao.php";
+
 
 class ProprietarioDAO extends Conexao{
     public function adicionar(Proprietario $proprietario){

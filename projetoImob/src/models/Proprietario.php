@@ -6,12 +6,13 @@ class Proprietario{
     private string $sexo;
     private string $ativo;
 
-    public function __construct(?int $id = null, ?string $nome = null, ?string $contato = null, ?string $sexo = null, ?string $ativo = null)
+    public function __construct(?int $id = 0, ?string $nome = '', ?string $contato = '', ?string $sexo = '', ?string $ativo = '')
     {
         $this->id = $id;
         $this->nome = $nome;
         $this->contato = $contato;
         $this->sexo = $sexo;
+        $this->ativo = '1';
     }
 
     public function getId(): int{
