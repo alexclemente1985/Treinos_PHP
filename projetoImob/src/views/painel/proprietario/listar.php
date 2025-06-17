@@ -23,29 +23,38 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="zebra">
-            <td class="fonte14 espaco-letra fw-300 txt-c">Sicrano</td>
-            <td class="fonte14 espaco-letra fw-300 txt-c">21 2222-3333</td>
-            <td class="fonte14 espaco-letra fw-300 txt-c">Masculino</td>
-            <td class="txt-c">
-                <?php if(1==2):?>
-                    <i class="fa-solid fa-lock fnc-error fonte14"></i>
-                <?php else: ?>
-                    <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
-                <?php endif;?>
+        <?php
+        if (isset($proprietarios) && count($proprietarios) > 0):
+            foreach ($proprietarios as $p):
+        ?>
+                <!--Chamar o atributo como o banco de dados está retornando-->
+                <tr class="zebra">
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->ID; ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->NOME; ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->CONTATO; ?></td>
+                    <td class="txt-c">
+                        <?php if ($p->ATIVO == '1'): ?>
+                            <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
+                        <?php else: ?>
+                            <i class="fa-solid fa-lock fnc-error fonte14"></i>
+                        <?php endif; ?>
 
-            </td>
-            <td class="flex justify-center item-centro">
-                <a href="">
-                    <i class="fa-solid fa-trash fonte14 mg-r-2 fnc-preto-azulado"></i>
-                </a>
-                <a href="">
-                    <i class="fa-solid fa-pen fonte14 fnc-azul"></i>
-                </a>
+                    </td>
+                    <td class="flex justify-center item-centro">
+                        <a href="">
+                            <i class="fa-solid fa-trash fonte14 mg-r-2 fnc-preto-azulado"></i>
+                        </a>
+                        <a href="index.php?controller=ProprietarioController&method=index&id=<?= $p->ID; ?>">
+                            <i class="fa-solid fa-pen fonte14 fnc-azul"></i>
+                        </a>
 
 
-            </td>
-        </tr>
+                    </td>
+                </tr>
+            <?php endforeach;
+        else: ?>
+            <h2>Nenhum registro no banco de dados.</h2>
+        <?php endif; ?>
     </tbody>
     <tfoot></tfoot>
 </table>

@@ -10,7 +10,7 @@ class Conexao{
             try{
                 #PDO -> objeto responsável pela conexão com o BD
                 #Setando cadeia de caracteres como UTF-8
-                self::$conexao = new PDO($info,"root","",[PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
+                self::$conexao = new PDO($info, "tester", "123456", [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]);
                 #Definindo retorno dos erros possíveis no banco de dados
                 self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
@@ -53,7 +53,7 @@ class Conexao{
         #implode -> cria uma string separada pelo caractere escolhido (primeiro parâmetro) a partir de um array
         #array_fill -> cria um array com tamanho definido e com preenchimento a partir do valor inserido no terceiro parâmetro
         $sql = "INSERT INTO {$tabela} (".implode(",", $atributos).") VALUES(".implode(",", array_fill(0,count($valores), "?")).")";
-        
+
         $statement = $this->executarConsulta($sql,$valores);
         return self::getConexao()->lastInsertId();
     }
@@ -73,7 +73,7 @@ class Conexao{
     protected function deletar($tabela, $id){
         $sql = "DELETE {$tabela} WHERE ID = ?";
         $statement = $this->executarConsulta($sql, [$id]);
-        
+
         return $statement->rowCount();
     }
 }

@@ -22,11 +22,45 @@ class Proprietario{
     public function setId(int $id){
 
     }
+    public function getNome(): int
+    {
+        return $this->nome;
+    }
+
+    public function setNome(string $nome)
+    {
+        $this->nome = $nome;
+    }
+    public function getContato(): int
+    {
+        return $this->contato;
+    }
+
+    public function setContato(string $contato)
+    {
+        return $this->contato = $contato;
+    }
+    public function getAtivo(): int
+    {
+        return $this->ativo;
+    }
+
+    public function setAtivo(string $ativo)
+    {
+        return $this->ativo = $ativo;
+    }
 
     public function __set($name, $value)
     {
         if(property_exists($this, $name)){
-            $this->$name = $value;
+            $this->name = $value;
+        }
+    }
+
+    public function __get($name)
+    {
+        if (property_exists($this, $name)) {
+            return $this->name;
         }
     }
 

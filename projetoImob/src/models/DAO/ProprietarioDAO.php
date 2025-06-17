@@ -10,5 +10,12 @@ class ProprietarioDAO extends Conexao{
 
         return $this->inserir('PROPRIETARIO',$atributos,$valores);
     }
+
+    public function listarTodos()
+    {
+        return $this->listar('PROPRIETARIO');
+    }
+
+    public function obterPorId($id) {}
 }
 ?>

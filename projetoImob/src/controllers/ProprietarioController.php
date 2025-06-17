@@ -14,7 +14,12 @@ class ProprietarioController extends Notification
         $this->proprietarioDAO = new ProprietarioDAO();
         $this->proprietarioService = new ProprietarioService($this->proprietarioDAO);
     }
-        function index(){
+    function index()
+    {
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $proprietario = $this->proprietarioDAO->obterPorId($id);
+        }
         if ($_POST) {
             $this->inserir($_POST);
         }
@@ -27,7 +32,10 @@ class ProprietarioController extends Notification
     }
     function listar()
     {
+        $proprietarios = $this->proprietarioDAO->listarTodos();
         require_once "views/painel/index.php";
     }
+
+    function atualizar($dados) {}
     }
 ?>

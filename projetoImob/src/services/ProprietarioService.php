@@ -8,7 +8,6 @@ class ProprietarioService{
 
     public function __construct(ProprietarioDAO $proprietarioDAO)
     {
-        var_dump($proprietarioDAO);
         $this->proprietarioDAO = $proprietarioDAO;
     }
 
