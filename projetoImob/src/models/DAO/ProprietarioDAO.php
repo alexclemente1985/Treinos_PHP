@@ -16,6 +16,8 @@ class ProprietarioDAO extends Conexao{
         return $this->listar('PROPRIETARIO');
     }
 
-    public function obterPorId($id) {}
+    public function listarPorId($id) {
+        return $this->listar('PROPRIETARIO','WHERE ID = ?', [$id]);
+    }
 }
 ?>

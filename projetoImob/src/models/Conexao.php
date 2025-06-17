@@ -55,7 +55,7 @@ class Conexao{
         $sql = "INSERT INTO {$tabela} (".implode(",", $atributos).") VALUES(".implode(",", array_fill(0,count($valores), "?")).")";
 
         $statement = $this->executarConsulta($sql,$valores);
-        return self::getConexao()->lastInsertId();
+        return [self::getConexao()->lastInsertId(), $atributos, $valores];
     }
 
     protected function atualizar($tabela, $campos, $valores, $id){

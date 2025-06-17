@@ -22,7 +22,7 @@ class Proprietario{
     public function setId(int $id){
 
     }
-    public function getNome(): int
+    public function getNome(): string
     {
         return $this->nome;
     }
@@ -31,7 +31,7 @@ class Proprietario{
     {
         $this->nome = $nome;
     }
-    public function getContato(): int
+    public function getContato(): string
     {
         return $this->contato;
     }
@@ -40,7 +40,7 @@ class Proprietario{
     {
         return $this->contato = $contato;
     }
-    public function getAtivo(): int
+    public function getAtivo(): string
     {
         return $this->ativo;
     }
@@ -53,14 +53,14 @@ class Proprietario{
     public function __set($name, $value)
     {
         if(property_exists($this, $name)){
-            $this->name = $value;
+            $this->$name = $value;
         }
     }
 
     public function __get($name)
     {
         if (property_exists($this, $name)) {
-            return $this->name;
+            return $this->$name;
         }
     }
 

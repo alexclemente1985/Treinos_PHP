@@ -2,9 +2,9 @@
 require_once "models/Proprietario.php";
 require_once "models/DAO/ProprietarioDAO.php";
 
-
 class ProprietarioService{
     private $proprietarioDAO;
+    private $proprietario;
 
     public function __construct(ProprietarioDAO $proprietarioDAO)
     {
@@ -12,13 +12,13 @@ class ProprietarioService{
     }
 
     public function cadastrarProprietario($dados){
-        $proprietario = new Proprietario();
+        $this->proprietario = new Proprietario();
 
         foreach($dados as $key=>$value){
-            $proprietario->$key = $value;
+           $this->proprietario->$key = $value;
         }
 
-        return $this->proprietarioDAO->adicionar($proprietario);
+        return $this->proprietarioDAO->adicionar($this->proprietario);
     }
 }
 ?>

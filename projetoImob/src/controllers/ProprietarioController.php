@@ -18,17 +18,18 @@ class ProprietarioController extends Notification
     {
         $id = $_GET['id'] ?? null;
         if ($id) {
-            $proprietario = $this->proprietarioDAO->obterPorId($id);
+            $proprietarios = $this->proprietarioDAO->listarPorId($id);
         }
         if ($_POST) {
-            $this->inserir($_POST);
+            $resultado= $this->inserir($_POST);
         }
         require_once "views/painel/index.php";
     }
     public function inserir($dados)
     {
         $retorno = $this->proprietarioService->cadastrarProprietario($dados);
-        echo $this->showMessage("Dados inseridos com sucesso!");
+        return $retorno;
+        #echo $this->showMessage("Dados inseridos com sucesso!");
     }
     function listar()
     {
