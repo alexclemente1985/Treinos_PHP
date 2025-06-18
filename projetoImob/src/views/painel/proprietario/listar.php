@@ -29,9 +29,15 @@
         ?>
                 <!--Chamar o atributo como o banco de dados está retornando-->
                 <tr class="zebra">
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->ID; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->NOME; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->CONTATO; ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c">
+                        <?php
+                        if ($p->SEXO == 'M'): echo "Masculino";
+                        else: echo "Feminino";
+                        endif;
+                        ?>
+                    </td>
                     <td class="txt-c">
                         <?php if ($p->ATIVO == '1'): ?>
                             <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
@@ -41,7 +47,7 @@
 
                     </td>
                     <td class="flex justify-center item-centro">
-                        <a href="">
+                        <a href="index.php?controller=ProprietarioController&method=deletar&id=<?= $p->ID; ?>">
                             <i class="fa-solid fa-trash fonte14 mg-r-2 fnc-preto-azulado"></i>
                         </a>
                         <a href="index.php?controller=ProprietarioController&method=index&id=<?= $p->ID; ?>">

@@ -20,5 +20,16 @@ class ProprietarioService{
 
         return $this->proprietarioDAO->adicionar($this->proprietario);
     }
+
+    public function atualizarProprietario($dados)
+    {
+        $this->proprietario = new Proprietario();
+
+        foreach ($dados as $key => $value) {
+            $this->proprietario->$key = $value;
+        }
+
+        return $this->proprietarioDAO->atualizarProprietario($this->proprietario);
+    }
 }
 ?>

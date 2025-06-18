@@ -71,7 +71,7 @@ class Conexao{
     }
 
     protected function deletar($tabela, $id){
-        $sql = "DELETE {$tabela} WHERE ID = ?";
+        $sql = "DELETE FROM {$tabela} WHERE ID = ? LIMIT 1";
         $statement = $this->executarConsulta($sql, [$id]);
 
         return $statement->rowCount();

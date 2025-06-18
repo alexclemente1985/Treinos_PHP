@@ -21,7 +21,11 @@ class ProprietarioController extends Notification
             $proprietarios = $this->proprietarioDAO->listarPorId($id);
         }
         if ($_POST) {
-            $resultado= $this->inserir($_POST);
+            if (empty($_POST['id'])) {
+                $resultado = $this->inserir($_POST);
+            } else {
+                $resultado = $this->atualizar($_POST);
+            }
         }
         require_once "views/painel/index.php";
     }
@@ -37,6 +41,37 @@ class ProprietarioController extends Notification
         require_once "views/painel/index.php";
     }
 
-    function atualizar($dados) {}
+    function atualizar($dados)
+    {
+        $retorno = $this->proprietarioService->atualizarProprietario($dados);
+        return $retorno;
+    }
+    function deletar()
+    {
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $escolha = $this->showMessage("Deseja excluir o proprietário", "ProprietarioController", "listar");
+
+            if ($escolha) {
+                $this->excluirProprietario($id);
+            } else {
+                require_once "views/painel/index.php";
+            }
+        } else {
+            $this->showMessage("ID de usuário não informado...", "ProprietarioController", "listar");
+        }
+    }
+
+    function excluirProprietario($id)
+    {
+
+        $rowCount = $this->proprietarioDAO->excluir($id);
+
+        if ($rowCount > 0) {
+            $this->showMessage("Proprietário de ID {$id} excluído com sucesso!");
+        } else {
+            $this->showMessage("Falha na exclusão do proprietário de ID {$id}...", "ProprietarioController", "listar");
+        }
+    }
     }
 ?>
