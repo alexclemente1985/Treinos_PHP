@@ -32,8 +32,9 @@ class ProprietarioController extends Notification
     public function inserir($dados)
     {
         $retorno = $this->proprietarioService->cadastrarProprietario($dados);
-        return $retorno;
-        #echo $this->showMessage("Dados inseridos com sucesso!");
+        if($retorno){
+            $this->showMessage("Dados inseridos com sucesso!", "ProprietarioController","listar");
+        }
     }
     function listar()
     {
@@ -44,31 +45,35 @@ class ProprietarioController extends Notification
     function atualizar($dados)
     {
         $retorno = $this->proprietarioService->atualizarProprietario($dados);
-        return $retorno;
+        if($retorno){
+            $this->showMessage("Dados atualizados com sucesso!", "ProprietarioController","listar");
+        }
     }
     function deletar()
     {
+        require_once "views/painel/index.php";
         $id = $_GET['id'] ?? null;
         if ($id) {
-            $escolha = $this->showMessage("Deseja excluir o proprietário", "ProprietarioController", "listar");
-
-            if ($escolha) {
-                $this->excluirProprietario($id);
+            $this->showMessage(
+                "Deseja excluir o proprietário de ID {$id}?", 
+                "ProprietarioController", 
+                "confirmarDeletar", 
+                $id
+             );
             } else {
-                require_once "views/painel/index.php";
-            }
-        } else {
             $this->showMessage("ID de usuário não informado...", "ProprietarioController", "listar");
         }
     }
 
-    function excluirProprietario($id)
+    function confirmarDeletar()
     {
+        require_once "views/painel/index.php";
 
+        $id = $_GET['id'] ?? null;
         $rowCount = $this->proprietarioDAO->excluir($id);
 
         if ($rowCount > 0) {
-            $this->showMessage("Proprietário de ID {$id} excluído com sucesso!");
+            $this->showMessage("Proprietário de ID {$id} excluído com sucesso!", "ProprietarioController", "listar");
         } else {
             $this->showMessage("Falha na exclusão do proprietário de ID {$id}...", "ProprietarioController", "listar");
         }

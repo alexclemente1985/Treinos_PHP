@@ -14,7 +14,7 @@
                     if($controller == 'painel' && $method == 'index'){
                         require_once "views/painel/main/" . $method . ".php";
                     }
-                    else{
+                    else if(($method != 'deletar') && ($method != strtolower('confirmarDeletar'))){
                         require_once "views/painel/" . $controller . "/" . $method . ".php";
                     }
                 }?>
