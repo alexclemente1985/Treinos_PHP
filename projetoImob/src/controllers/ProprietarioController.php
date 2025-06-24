@@ -78,5 +78,15 @@ class ProprietarioController extends Notification
             $this->showMessage("Falha na exclusão do proprietário de ID {$id}...", "ProprietarioController", "listar");
         }
     }
+    public function alterarStatus(){
+        $id=$_GET['id'] ?? null;
+        $ativo=$_GET['ativo'] ?? null;
+
+        if(isset($id)){
+            $proprietario = new Proprietario($id,'','','',$ativo);
+            $this->proprietarioDAO->atualizarProprietario($proprietario);
+            #$this->showMessage()
+        }
+    }
     }
 ?>
