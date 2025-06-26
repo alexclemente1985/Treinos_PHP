@@ -40,6 +40,8 @@ class Conexao{
         }
         catch(PDOException $e){
             die("Erro ao executar consulta no banco de dados: ".$e->getMessage());
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
     }
 

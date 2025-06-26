@@ -1,6 +1,10 @@
 <?php
-$controller = strtolower($_GET['controller']);
-$method = strtolower($_GET['method']);
+if (isset($controller)) {
+    $controller = strtolower($_GET['controller']);
+}
+if (isset($method)) {
+    $method = strtolower($_GET['method']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +14,8 @@ $method = strtolower($_GET['method']);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Casa web - imobiliária online</title>
-        <?php if($controller == "base" && $method == 'index'):?>
+        <script src="lib/js/jquery-3.7.1.min.js" type="text/javascript"></script>
+        <?php if (isset($controller) && ($controller == "base") && isset($method) && ($method == 'index')): ?>
             <script src="lib/js/animations.js" type="module"></script>
         <?php endif;?>
         <script src="lib/js/ajax.js" type="text/javascript"></script>

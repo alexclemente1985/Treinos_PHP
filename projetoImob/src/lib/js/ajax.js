@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // fará uma requisição para o php para alterar os dados do ativo
             $.ajax({
-                type: "get",
-                url:"index.php?controller=ProprietarioController&method=alterarStatus&id="+id+"&ativo="+ativo,
+                type: "POST",
+                url:"index.php?controller=ProprietarioController&method=alterarStatus",
+                data: "id="+id+"&ativo="+ativo,
                 success: function(){
                     location.reload();
                 }

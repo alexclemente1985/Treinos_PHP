@@ -55,9 +55,9 @@ class ProprietarioController extends Notification
         $id = $_GET['id'] ?? null;
         if ($id) {
             $this->showMessage(
-                "Deseja excluir o proprietário de ID {$id}?", 
-                "ProprietarioController", 
-                "confirmarDeletar", 
+                "Deseja excluir o proprietário de ID {$id}?",
+                "ProprietarioController",
+                "confirmarDeletar",
                 $id
              );
             } else {
@@ -78,14 +78,10 @@ class ProprietarioController extends Notification
             $this->showMessage("Falha na exclusão do proprietário de ID {$id}...", "ProprietarioController", "listar");
         }
     }
-    public function alterarStatus(){
-        $id=$_GET['id'] ?? null;
-        $ativo=$_GET['ativo'] ?? null;
-
-        if(isset($id)){
-            $proprietario = new Proprietario($id,'','','',$ativo);
-            $this->proprietarioDAO->atualizarProprietario($proprietario);
-            #$this->showMessage()
+    function alterarStatus()
+    {
+        if ($_POST) {
+            $this->atualizar($_POST);
         }
     }
     }

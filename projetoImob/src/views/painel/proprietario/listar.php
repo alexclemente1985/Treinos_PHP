@@ -40,14 +40,13 @@
                     </td>
                     <td class="txt-c">
                         <?php if ($p->ATIVO == '1'): ?>
-                            <span class="ativo" data-id="<?= $p->ID;?>" data-status="0">
+                            <span class="ativo" data-id="<?= $p->ID; ?>" data-status="0">
                                 <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
                             </span>
-                            
                         <?php else: ?>
-                            <span class="ativo" data-id="<?= $p->ID;?>" data-status="1">
+                            <span class="ativo" data-id="<?= $p->ID; ?>" data-status="1">
                                 <i class="fa-solid fa-lock fnc-error fonte14"></i>
-                            </span>                            
+                            </span>
                         <?php endif; ?>
 
                     </td>
