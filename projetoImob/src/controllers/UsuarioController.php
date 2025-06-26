@@ -1,14 +1,17 @@
 <?php
 require_once "models/DAO/UsuarioDAO.php";
+require_once "models/DAO/PerfilDAO.php";
 require_once "services/UsuarioService.php";
 require_once "models/abstracts/Notification.php";
 class UsuarioController extends Notification
 {
     private $usuarioService;
     private $usuarioDAO;
+    private $perfil;
 
     public function __construct()
     {
+        $this->perfil = new PerfilDAO();
         $this->usuarioDAO = new UsuarioDAO();
         $this->usuarioService = new UsuarioService($this->usuarioDAO);
     }

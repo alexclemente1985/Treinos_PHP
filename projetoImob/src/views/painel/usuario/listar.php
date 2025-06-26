@@ -1,6 +1,6 @@
 <div class="wd-100">
     <div class="box-8">
-        <h2><i class="fa-solid fa-user fonte30 mg-r-1"></i>Usuário</h2>
+        <h2><i class="fa-solid fa-user fonte18 mg-r-1"></i>Usuário</h2>
     </div>
     <div class="box-4 flex justify-center item-centro">
         <div class="radius-start wd-30 bg-azul-escuro pd-10 fnc-branco fonte16">
