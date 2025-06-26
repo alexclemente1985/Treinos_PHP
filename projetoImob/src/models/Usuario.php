@@ -62,5 +62,10 @@
             ];
         }
 
+    public function atributosPreenchidos()
+    {
+        #função anônima permite filtrar o preenchimento que tiver valores não nulos ou vazios
+        return array_filter($this->toArray(), fn($value) => $value !== null && $value !== '');
+    }
     }
 ?>
