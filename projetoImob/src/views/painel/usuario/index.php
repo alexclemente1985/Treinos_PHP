@@ -56,8 +56,21 @@
             <select name="perfil" id="perfil">
                 <option value="">Escolha o perfil...</option>
                 <option value="1" <?php if(isset($id) && $id != '' && $usuarios[0]->PERFIL == '1'):?> selected="selected"<?php endif;?>>ADMINISTRADOR</option>
-                <option value="0" <?php if(isset($id) && $id != '' && $usuarios[0]->PERFIL == '0'):?> selected="selected"<?php endif;?>>USUÁRIO</option>
+                <option value="2" <?php if(isset($id) && $id != '' && $usuarios[0]->PERFIL == '2'):?> selected="selected"<?php endif;?>>USUÁRIO</option>
             </select>
+        </div>
+        <div class="box-6">
+            <?php
+                $imagem = isset($id) && $id != '' ? $usuarios[0]->IMAGEM :  'user-padrao.png';
+                $dirImagem = 'lib/img/users-images/'.$imagem;
+                $imagemAlt = $imagem === 'user-padrao.png'?'Escolha uma imagem':'Imagem do usuário';
+            ?>
+            <label for="" class="fonte16 fnc-preto-azulado">
+                <i class="fa-solid fa-file-image fonte20 fnc-cinza"></i>
+                <?= $imagemAlt;?>
+            </label>
+            <input type="file" name="imagem" id="" value="<?= $imagem;?>">
+            <img src="<?= $dirImagem;?>" alt="<?= $imagemAlt;?>" class="logo-150">
         </div>
         <div class="box-12 mg-t-2">
             <input type="submit" value="Cadastrar" class="btn bg-azul fnc-branco">
