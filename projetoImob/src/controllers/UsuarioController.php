@@ -1,19 +1,23 @@
 <?php
+require_once "configurations/Formatter.php";
 require_once "models/DAO/UsuarioDAO.php";
 require_once "models/DAO/PerfilDAO.php";
 require_once "services/UsuarioService.php";
+require_once "services/FileUploadService.php";
 require_once "models/abstracts/Notification.php";
 class UsuarioController extends Notification
 {
     private $usuarioService;
     private $usuarioDAO;
     private $perfil;
+    private $fileUploadService;
 
     public function __construct()
     {
         $this->perfil = new PerfilDAO();
         $this->usuarioDAO = new UsuarioDAO();
         $this->usuarioService = new UsuarioService($this->usuarioDAO);
+        $this->fileUploadService = new FileUploadService('lib/img/users-images');
     }
     function index()
     {
@@ -23,29 +27,38 @@ class UsuarioController extends Notification
         }
         if ($_POST) {
             if (empty($_POST['id'])) {
-                $resultado = $this->inserir($_POST);
+                $resultado = $this->inserir($_POST, $_FILES);
             } else {
-                $resultado = $this->atualizar($_POST);
+                $resultado = $this->atualizar($_POST, $_FILES);
             }
         }
+        $perfil = $this->perfil->listarTodos();
         require_once "views/painel/index.php";
     }
-    public function inserir($dados)
+    public function inserir($dados, $file)
     {
-        $retorno = $this->usuarioService->cadastrarUsuario($dados);
+        $imagem = $this->fileUploadService->upload($file['imagem']);
+        $retorno = $this->usuarioService->cadastrarUsuario($dados, $imagem);
         if ($retorno) {
             $this->showMessage("Dados inseridos com sucesso!", "UsuarioController", "listar");
         }
     }
     function listar()
     {
+        $formatter = new Formatter();
         $usuarios = $this->usuarioDAO->listarTodos();
         require_once "views/painel/index.php";
     }
 
-    function atualizar($dados)
+    function atualizar($dados, $file)
     {
-        $retorno = $this->usuarioService->atualizarUsuario($dados);
+        if (array_search('imagem', $file)) {
+            $imagem = $this->fileUploadService->upload($file['imagem']);
+            $retorno = $this->usuarioService->atualizarUsuario($dados, $imagem);
+        } else {
+            $retorno = $this->usuarioService->atualizarUsuario($dados);
+        }
+
         if ($retorno) {
             $this->showMessage("Dados atualizados com sucesso!", "UsuarioController", "listar");
         }
@@ -82,7 +95,7 @@ class UsuarioController extends Notification
     function alterarStatus()
     {
         if ($_POST) {
-            $this->atualizar($_POST);
+            $this->atualizar($_POST, $_FILES);
         }
     }
     }

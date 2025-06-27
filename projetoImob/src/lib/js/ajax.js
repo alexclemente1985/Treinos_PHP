@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function(){
             e.preventDefault(); //evita o comportamento padrão do link
             let ativo =$(this).data('status');
             let id = $(this).data("id");
+            let urlBase = $(this).data("url");
 
             // fará uma requisição para o php para alterar os dados do ativo
             $.ajax({
                 type: "POST",
-                url:"index.php?controller=ProprietarioController&method=alterarStatus",
+                url: urlBase,
                 data: "id="+id+"&ativo="+ativo,
                 success: function(){
                     location.reload();

@@ -1,5 +1,6 @@
 <?php
-    class Usuario{
+
+class Usuario{
         private string $id;
         private string $nome;
         private string $usuario;
@@ -16,17 +17,18 @@
                 string $senha='',
                 string $email='',
                 string $imagem='',
-                string $datacadastro='',
+        string $dataCadastro = '',
                 string $ativo=''
                 )
             {
+        date_default_timezone_set('America/Sao_Paulo');
                 $this->id = $id;
                 $this->nome = $nome;
                 $this->usuario = $usuario;
                 $this->senha = $senha;
                 $this->email = $email;
                 $this->imagem = $imagem;
-                $this->datacadastro = $datacadastro;
+        $this->datacadastro = $dataCadastro ?? ('Y-m-d H:i:s');
                 $this->ativo = $ativo;
             }
 

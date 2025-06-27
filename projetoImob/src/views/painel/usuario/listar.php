@@ -31,7 +31,7 @@
         ?>
                 <!--Chamar o atributo como o banco de dados está retornando-->
                 <tr class="zebra">
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $u->DATACADASTRO; ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->dateTimeFormatter($u->DATACADASTRO); ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $u->NOME; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $u->USUARIO; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $u->EMAIL; ?></td>
@@ -44,11 +44,11 @@
                     </td>
                     <td class="txt-c">
                         <?php if ($u->ATIVO == '1'): ?>
-                            <span class="ativo" data-id="<?= $u->ID; ?>" data-status="0">
+                            <span class="ativo" data-id="<?= $u->ID; ?>" data-status="0" data-url="index.php?controller=UsuarioController&method=alterarStatus">
                                 <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
                             </span>
                         <?php else: ?>
-                            <span class="ativo" data-id="<?= $u->ID; ?>" data-status="1">
+                            <span class="ativo" data-id="<?= $u->ID; ?>" data-status="1" data-url="index.php?controller=UsuarioController&method=alterarStatus">
                                 <i class="fa-solid fa-lock fnc-error fonte14"></i>
                             </span>
                         <?php endif; ?>
