@@ -17,7 +17,7 @@ class FileUploadService{
 
             return $fileName;
         }
-        return null;
+        return "";
     }
 }
 ?>
