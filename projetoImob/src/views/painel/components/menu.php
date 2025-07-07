@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class="mg-b-2 pd-b-1">
-                <a href="http://" class="fonte14 fnc-cinza">
+                <a href="index.php?controller=ImovelController&method=listar" class="fonte14 fnc-cinza">
                     <i class="fa-solid fa-city fonte18 mg-r-1"></i>Imóvel
                 </a>
             </li>

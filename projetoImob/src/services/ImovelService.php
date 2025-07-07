@@ -14,7 +14,7 @@ class ImovelService{
     public function cadastrarImovel($dados, $imagem)
     {
         $this->imovel = new Imovel();
-        $dados['imagem'] = $imagem;
+        $dados['imagemcapa'] = $imagem;
         $dados['datacadastro'] = date('Y-m-d H:i:s', time());
 
         foreach($dados as $key=>$value){
@@ -28,7 +28,7 @@ class ImovelService{
     {
         $this->imovel = new Imovel();
         if (strlen($imagem) > 0) {
-            $dados['imagem'] = $imagem;
+            $dados['imagemcapa'] = $imagem;
         }
 
 

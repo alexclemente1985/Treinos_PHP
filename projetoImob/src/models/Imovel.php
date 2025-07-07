@@ -37,6 +37,7 @@ class Imovel{
         string $finalidade = '', 
         string $proprietario = '')
     {
+        date_default_timezone_set('America/Sao_Paulo');
         $this->id = $id;
         $this->codigo = $codigo;
         $this->valor = $valor;
