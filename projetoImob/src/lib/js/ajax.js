@@ -8,11 +8,13 @@ document.addEventListener("DOMContentLoaded", function(){
             let id = $(this).data("id");
             let urlBase = $(this).data("url");
 
+            let isImovel = $(this).data('imovel');
+
             // fará uma requisição para o php para alterar os dados do ativo
             $.ajax({
                 type: "POST",
                 url: urlBase,
-                data: "id="+id+"&ativo="+ativo,
+                data: "id="+id+ (isImovel ? "&estatus=" :"&ativo=")+ativo,
                 success: function(){
                     location.reload();
                 }

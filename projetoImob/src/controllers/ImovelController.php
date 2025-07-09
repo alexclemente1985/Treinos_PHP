@@ -25,11 +25,13 @@ class ImovelController extends Notification{
         $this->proprietarioDAO = new ProprietarioDAO();
         $this->imovelDAO = new ImovelDAO();
         $this->imovelService = new ImovelService($this->imovelDAO);
-        
+
         $this->fileUploadService = new FileUploadService('lib/img/upload');
     }
     function index()
     {
+
+        $imoveis = null;
         $id = $_GET['id'] ?? null;
         if ($id) {
             $imoveis = $this->imovelDAO->listarPorId($id);
@@ -44,6 +46,9 @@ class ImovelController extends Notification{
         $tipoImovel = $this->tipoimovelDAO->listarTodos();
         $finalidade = $this->finalidadeDAO->listarTodos();
         $proprietario = $this->proprietarioDAO->listarTodos();
+
+        var_dump("TESTE INDEX IMOVEL");
+        var_dump($tipoImovel);
 
         require_once "views/painel/index.php";
     }
@@ -69,6 +74,8 @@ class ImovelController extends Notification{
 
     function atualizar($dados, $file)
     {
+
+
         if (array_search('imagemcapa', $file)) {
             $imagem = $this->fileUploadService->upload($file['imagemcapa']);
             $retorno = $this->imovelService->atualizarImovel($dados, $imagem);
@@ -112,6 +119,7 @@ class ImovelController extends Notification{
     function alterarStatus()
     {
         if ($_POST) {
+            var_dump($_POST);
             $this->atualizar($_POST, $_FILES);
         }
     }

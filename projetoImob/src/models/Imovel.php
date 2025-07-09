@@ -12,29 +12,29 @@ class Imovel{
     private string $garagem;
     private string $areatotal;
     private string $areaconstruida;
-    private string $status;
+    private string $estatus;
     private string $datacadastro;
     private string $tipoimovel;
     private string $finalidade;
     private string $proprietario;
 
     public function __construct(
-        string $id = '', 
-        string $codigo = '', 
-        string $valor = '', 
-        string $cep = '', 
-        string $logradouro = '', 
-        string $bairro = '', 
-        string $cidade = '', 
-        string $quartos = '', 
-        string $banheiros = '', 
-        string $garagem = '', 
-        string $areatotal = '', 
-        string $areaconstruida = '', 
-        string $status = '', 
-        string $datacadastro = '', 
-        string $tipoimovel = '', 
-        string $finalidade = '', 
+        string $id = '',
+        string $codigo = '',
+        string $valor = '',
+        string $cep = '',
+        string $logradouro = '',
+        string $bairro = '',
+        string $cidade = '',
+        string $quartos = '',
+        string $banheiros = '',
+        string $garagem = '',
+        string $areatotal = '',
+        string $areaconstruida = '',
+        string $estatus = '',
+        string $dataCadastro = '',
+        string $tipoimovel = '',
+        string $finalidade = '',
         string $proprietario = '')
     {
         date_default_timezone_set('America/Sao_Paulo');
@@ -50,7 +50,7 @@ class Imovel{
         $this->garagem = $garagem;
         $this->areatotal = $areatotal;
         $this->areaconstruida = $areaconstruida;
-        $this->status = $status;
+        $this->estatus = $estatus;
         $this->datacadastro = $dataCadastro ?? ('Y-m-d H:i:s');
         $this->tipoimovel = $tipoimovel;
         $this->finalidade = $finalidade;
@@ -89,19 +89,18 @@ class Imovel{
                 'garagem'=>$this->garagem,
                 'areatotal'=>$this->areatotal,
                 'areaconstruida'=>$this->areaconstruida,
-                'status'=>$this->status,
+            'estatus' => $this->estatus,
                 'datacadastro'=>$this->datacadastro,
                 'tipoimovel'=>$this->tipoimovel,
                 'finalidade'=>$this->finalidade,
                 'proprietario'=>$this->proprietario
             ];
     }
-    
-     public function atributosPreenchidos()
+
+    public function atributosPreenchidos()
     {
         #função anônima permite filtrar o preenchimento que tiver valores não nulos ou vazios
         return array_filter($this->toArray(), fn($value) => $value !== null && $value !== '');
     }
-    
 }
 ?>

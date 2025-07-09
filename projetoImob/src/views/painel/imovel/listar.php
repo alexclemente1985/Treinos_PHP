@@ -17,13 +17,14 @@
         <tr>
             <th class="fonte14 espaco-letra fw-bold">Código</th>
             <th class="fonte14 espaco-letra fw-bold">Valor</th>
-            <th class="fonte14 espaco-letra fw-bold">Logradouro</th>
+            <th class="fonte14 espaco-letra fw-bold">Endereço</th>
             <th class="fonte14 espaco-letra fw-bold">Bairro</th>
             <th class="fonte14 espaco-letra fw-bold">Cidade</th>
             <th class="fonte14 espaco-letra fw-bold">Tipo Imóvel</th>
             <th class="fonte14 espaco-letra fw-bold">Finalidade</th>
             <th class="fonte14 espaco-letra fw-bold">Proprietário</th>
             <th class="fonte14 espaco-letra fw-bold">Contato</th>
+            <th class="fonte14 espaco-letra fw-bold">Ativo</th>
             <th class="fonte14 espaco-letra fw-bold">Ações</th>
         </tr>
     </thead>
@@ -40,30 +41,45 @@
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->BAIRRO; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->CIDADE; ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c">
-                        <?
-                        foreach($tipoImovel as $ti):
-                            if($im->TIPOIMOVEL == $ti->getId()): echo $ti->getDescricao();
-                            endif;
-                        endforeach;
+                        <?php if (isset($tipoImovel)):
+                            foreach ($tipoImovel as $ti):
+                                if ($im->TIPOIMOVEL == $ti->ID): echo $ti->DESCRICAO;
+                                endif;
+                            endforeach;
+                        endif;
                         ?>
                     </td>
                     <td class="fonte14 espaco-letra fw-300 txt-c">
-                        <?
-                        foreach($finalidade as $fin):
-                            if($im->FINALIDADE == $fin->getId()): echo $fin->getDescricao();
-                            endif;
-                        endforeach;
+                        <?php if (isset($finalidade)):
+                            foreach ($finalidade as $fin):
+                                if ($im->FINALIDADE == $fin->ID): echo $fin->DESCRICAO;
+                                endif;
+                            endforeach;
+                        endif;
                         ?>
                     </td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c">
-                        <?
-                        foreach($proprietario as $p):
-                            if($im->PROPRIETARIO == $p->getId()): echo $p->getNome();
-                            endif;
+                    <?php if (isset($proprietario)):
+                        foreach ($proprietario as $p):
+                            if ($im->PROPRIETARIO == $p->ID):
+                    ?>
+                                <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->NOME; ?></td>
+                                <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->CONTATO; ?></td>
+                    <?php endif;
                         endforeach;
-                        ?>
+                    endif; ?>
                     </td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->CONTATO; ?></td>
+
+                    <td class="txt-c">
+                        <?php if ($im->ESTATUS == '1'): ?>
+                            <span class="ativo" data-id="<?= $im->ID; ?>" data-status="0" data-imovel="true" data-url="index.php?controller=ImovelController&method=alterarStatus">
+                                <i class="fa-solid fa-lock-open fnc-sucesso fonte14"></i>
+                            </span>
+                        <?php else: ?>
+                            <span class="ativo" data-id="<?= $im->ID; ?>" data-status="1" data-imovel="true" data-url="index.php?controller=ImovelController&method=alterarStatus">
+                                <i class="fa-solid fa-lock fnc-error fonte14"></i>
+                            </span>
+                        <?php endif; ?>
+
                     </td>
                     <td class="flex justify-center item-centro">
                         <a href="index.php?controller=ImovelController&method=deletar&id=<?= $im->ID; ?>">
