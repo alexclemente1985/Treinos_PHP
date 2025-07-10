@@ -13,8 +13,11 @@ class ImovelService{
 
     public function cadastrarImovel($dados, $imagem)
     {
+        $codigo = $this->imovelDAO->listarMaxValue('CODIGO');
         $this->imovel = new Imovel();
+
         $dados['imagemcapa'] = $imagem;
+        $dados['codigo'] = $codigo[0]->ULTIMOVALOR + 1;
         $dados['datacadastro'] = date('Y-m-d H:i:s', time());
 
         foreach($dados as $key=>$value){

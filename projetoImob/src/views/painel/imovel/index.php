@@ -31,7 +31,8 @@
                 name="cep"
                 id="cep"
                 value="<?php if (isset($id) && $id != '' && isset($imoveis)): echo $imoveis[0]->CEP;
-                        endif; ?>">
+                        endif; ?>"
+                required>
         </div>
         <div class="box-8 mg-b-2">
             <label for="logradouro" class="fnc-preto-azulado">Endereço</label>

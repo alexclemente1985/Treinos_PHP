@@ -15,6 +15,7 @@
 <table class="grid wd-100 mg-t-8">
     <thead>
         <tr>
+            <th class="fonte14 espaco-letra fw-bold">Data Cadastro</th>
             <th class="fonte14 espaco-letra fw-bold">Código</th>
             <th class="fonte14 espaco-letra fw-bold">Valor</th>
             <th class="fonte14 espaco-letra fw-bold">Endereço</th>
@@ -36,14 +37,15 @@
                 <!--Chamar o atributo como o banco de dados está retornando-->
                 <tr class="zebra">
                     <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->dateTimeFormatter($im->DATACADASTRO); ?></td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->VALOR; ?></td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->LOGRADOURO; ?></td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->BAIRRO; ?></td>
-                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $im->CIDADE; ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= str_pad($im->CODIGO ? $im->CODIGO : "", 6, "0", STR_PAD_LEFT); ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c">R$ <?= $formatter->monetaryFormatter($im->VALOR); ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->capitalizeTextFormatter($im->LOGRADOURO); ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->capitalizeTextFormatter($im->BAIRRO); ?></td>
+                    <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->capitalizeTextFormatter($im->CIDADE); ?></td>
                     <td class="fonte14 espaco-letra fw-300 txt-c">
                         <?php if (isset($tipoImovel)):
                             foreach ($tipoImovel as $ti):
-                                if ($im->TIPOIMOVEL == $ti->ID): echo $ti->DESCRICAO;
+                                if ($im->TIPOIMOVEL == $ti->ID): echo $formatter->capitalizeTextFormatter($ti->DESCRICAO);
                                 endif;
                             endforeach;
                         endif;
@@ -52,7 +54,7 @@
                     <td class="fonte14 espaco-letra fw-300 txt-c">
                         <?php if (isset($finalidade)):
                             foreach ($finalidade as $fin):
-                                if ($im->FINALIDADE == $fin->ID): echo $fin->DESCRICAO;
+                                if ($im->FINALIDADE == $fin->ID): echo $formatter->capitalizeTextFormatter($fin->DESCRICAO);
                                 endif;
                             endforeach;
                         endif;
@@ -62,7 +64,7 @@
                         foreach ($proprietario as $p):
                             if ($im->PROPRIETARIO == $p->ID):
                     ?>
-                                <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->NOME; ?></td>
+                                <td class="fonte14 espaco-letra fw-300 txt-c"><?= $formatter->capitalizeTextFormatter($p->NOME); ?></td>
                                 <td class="fonte14 espaco-letra fw-300 txt-c"><?= $p->CONTATO; ?></td>
                     <?php endif;
                         endforeach;

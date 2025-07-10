@@ -31,6 +31,10 @@ class ImovelDAO extends Conexao{
     {
         return $this->deletar('IMOVEL', $id);
     }
-    
+
+    public function listarMaxValue($campo)
+    {
+        return $this->listarUltimoRegistro('IMOVEL', $campo);
+    }
 }
 ?>

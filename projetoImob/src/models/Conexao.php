@@ -78,5 +78,13 @@ class Conexao{
 
         return $statement->rowCount();
     }
+
+    #Método responsável por listar o último registro no banco
+    protected function listarUltimoRegistro($tabela, $campo, $condicao = "", $parametro = [])
+    {
+        $sql = "SELECT MAX($campo) AS ULTIMOVALOR FROM {$tabela} {$condicao} ORDER BY ID DESC ";
+        $statement = $this->executarConsulta($sql, $parametro);
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
 }
 ?>

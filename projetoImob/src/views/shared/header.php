@@ -1,10 +1,13 @@
 <?php
-if (isset($controller)) {
-    $controller = strtolower($_GET['controller']);
-}
-if (isset($method)) {
-    $method = strtolower($_GET['method']);
-}
+    require_once "configurations/Formatter.php";
+    $formatter = new Formatter();
+
+    if (isset($controller)) {
+        $controller = strtolower($_GET['controller']);
+    }
+    if (isset($method)) {
+        $method = strtolower($_GET['method']);
+    }
 ?>
 
 <!DOCTYPE html>
