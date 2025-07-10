@@ -17,6 +17,7 @@ class Imovel{
     private string $tipoimovel;
     private string $finalidade;
     private string $proprietario;
+    private string $imagemcapa;
 
     public function __construct(
         string $id = '',
@@ -35,7 +36,9 @@ class Imovel{
         string $dataCadastro = '',
         string $tipoimovel = '',
         string $finalidade = '',
-        string $proprietario = '')
+        string $proprietario = '',
+        string $imagemcapa = ''
+    )
     {
         date_default_timezone_set('America/Sao_Paulo');
         $this->id = $id;
@@ -55,6 +58,7 @@ class Imovel{
         $this->tipoimovel = $tipoimovel;
         $this->finalidade = $finalidade;
         $this->proprietario = $proprietario;
+        $this->imagemcapa = $imagemcapa;
     }
 
     public function getId(){
@@ -93,7 +97,8 @@ class Imovel{
                 'datacadastro'=>$this->datacadastro,
                 'tipoimovel'=>$this->tipoimovel,
                 'finalidade'=>$this->finalidade,
-                'proprietario'=>$this->proprietario
+            'proprietario' => $this->proprietario,
+            'imagemcapa' => $this->imagemcapa
             ];
     }
 

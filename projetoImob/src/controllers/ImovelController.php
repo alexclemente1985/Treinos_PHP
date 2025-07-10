@@ -47,9 +47,6 @@ class ImovelController extends Notification{
         $finalidade = $this->finalidadeDAO->listarTodos();
         $proprietario = $this->proprietarioDAO->listarTodos();
 
-        var_dump("TESTE INDEX IMOVEL");
-        var_dump($tipoImovel);
-
         require_once "views/painel/index.php";
     }
     public function inserir($dados, $file)
