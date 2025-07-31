@@ -36,5 +36,13 @@ class ImovelDAO extends Conexao{
     {
         return $this->listarUltimoRegistro('IMOVEL', $campo);
     }
+
+    public function adicionarImagem(ImagemImovel $imagemImovel){
+
+        $atributos = array_keys($imagemImovel->atributosPreenchidos());
+        $valores = array_values($imagemImovel->atributosPreenchidos());
+         
+        return $this->inserir('IMAGEMIMOVEL',$atributos,$valores);
+    }
 }
 ?>

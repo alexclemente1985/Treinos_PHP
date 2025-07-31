@@ -120,5 +120,23 @@ class ImovelController extends Notification{
             $this->atualizar($_POST, $_FILES);
         }
     }
+
+    #método responsável pelo gerenciamento de cadastro de imagens de um imóvel
+    public function cadastrarImagemImovel(){
+        $id = $_GET['id'] ?? null;
+        if($id){
+            $imovel = $this->imovelDAO->listarPorId($id);
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['imagens']['name'])){
+            $imagens = $this->fileUploadService->multUpload($_FILES['imagens'],$imovel[0]->ID);
+
+            if(!empty($imagens)){
+                $this->imovelService->cadastrarImagemImovel($_POST, $imagens);
+                echo $this->showMessage("Imagem do imóvel cadastrada com sucesso,","ImovelController", "listar");
+            }
+        }
+        require_once "views/painel/index.php";
+    }
     }
 ?>

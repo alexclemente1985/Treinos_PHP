@@ -19,5 +19,29 @@ class FileUploadService{
         }
         return "";
     }
+
+    #método responsável por armazenar várias imagens ao mesmo tempo
+    public function multUpload($files, $imovelId){
+        $fileNames = [];
+        $fileDir = $this->uploadDir.DIRECTORY_SEPARATOR."casa".$imovelId;
+
+        if(!is_dir($fileDir)){
+            mkdir($fileDir, 0777, true);
+        }
+
+        if(is_array($$files['name'])){
+            foreach($files['name'] as $key=>$value){
+                if(!empty($value)){
+                    $fileName = uniqid().'-'.$value;
+                    $saveDir = $fileDir.DIRECTORY_SEPARATOR.$fileNames;
+
+                    if(move_uploaded_file($files['tmp_name'][$key], $saveDir)){
+                        $fileNames[] = 'casa'.$imovelId.DIRECTORY_SEPARATOR.$fileName;
+                    }
+                }
+            }
+        }
+        return $fileNames;
+    }
 }
 ?>

@@ -27,6 +27,18 @@ class ImovelService{
         return $this->imovelDAO->adicionar($this->imovel);
     }
 
+    #método responsável pelo cadastro de imagens do imóvel
+    public function cadastrarImagemImovel($dados, $imagens){
+        if(!is_array($imagens)){
+            $imagens = [$imagens];
+        }
+
+        foreach($imagens as $imagem){
+            $imovelImagem = new ImagemImovel('', $imagem, $dados['imovel']);
+            $this->imovelDAO->adicionarImagem($imovelImagem);
+        }
+    }
+
     public function atualizarImovel($dados, $imagem = '')
     {
         $this->imovel = new Imovel();
