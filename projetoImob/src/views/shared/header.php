@@ -1,13 +1,13 @@
 <?php
-    require_once "configurations/Formatter.php";
-    $formatter = new Formatter();
+require_once "configurations/Formatter.php";
+$formatter = new Formatter();
 
-    if (isset($controller)) {
-        $controller = strtolower($_GET['controller']);
-    }
-    if (isset($method)) {
-        $method = strtolower($_GET['method']);
-    }
+if (isset($controller)) {
+    $controller = strtolower($_GET['controller']);
+}
+if (isset($method)) {
+    $method = strtolower($_GET['method']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +46,7 @@
                         <li class="mg-l-3"><a href="#alugar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Alugar</a></li>
                         <li class="mg-l-3"><a href="#depoimentos" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Depoimentos</a></li>
                         <li class="mg-l-3"><a href="#contato" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Contato</a></li>
+                        <li class="mg-l-3"><a href="index.php?controller=UsuarioController&method=autenticar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
                     </ul>
                 </nav>
             </div>

@@ -98,5 +98,13 @@ class UsuarioController extends Notification
             $this->atualizar($_POST, $_FILES);
         }
     }
+
+    public function autenticar()
+    {
+        #REQUEST METHOD permite pegar um post após um direcionamento via get
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // }
+        require_once "views/painel/usuario/autenticar.php";
+    }
     }
 ?>

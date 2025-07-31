@@ -13,8 +13,10 @@
                 <?php if(isset($controller) && isset($method)){
                     if($controller == 'painel' && $method == 'index'){
                         require_once "views/painel/main/" . $method . ".php";
-                    }
-                    else if(($method != 'deletar') && ($method != strtolower('confirmarDeletar'))){
+                    } else if (($method != 'deletar')
+                        && ($method != strtolower('confirmarDeletar'))
+                        #&& ($method != strtolower('cadastrarImagemImovel'))
+                    ) {
                         require_once "views/painel/" . $controller . "/" . $method . ".php";
                     }
                 }?>

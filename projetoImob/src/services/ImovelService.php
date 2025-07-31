@@ -1,5 +1,6 @@
 <?php
 require_once("models/Imovel.php");
+require_once("models/ImagemImovel.php");
 require_once("models/DAO/ImovelDAO.php");
 
 class ImovelService{
@@ -34,7 +35,7 @@ class ImovelService{
         }
 
         foreach($imagens as $imagem){
-            $imovelImagem = new ImagemImovel('', $imagem, $dados['imovel']);
+            $imovelImagem = new ImagemImovel(id: '', imagemImovel: $imagem, imovel: $dados['imovel']);
             $this->imovelDAO->adicionarImagem($imovelImagem);
         }
     }

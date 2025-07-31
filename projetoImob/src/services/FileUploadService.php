@@ -24,16 +24,18 @@ class FileUploadService{
     public function multUpload($files, $imovelId){
         $fileNames = [];
         $fileDir = $this->uploadDir.DIRECTORY_SEPARATOR."casa".$imovelId;
+        var_dump("<br> FILE DIR -> <br>");
+        var_dump($fileDir);
 
         if(!is_dir($fileDir)){
             mkdir($fileDir, 0777, true);
         }
 
-        if(is_array($$files['name'])){
+        if (is_array($files['name'])) {
             foreach($files['name'] as $key=>$value){
                 if(!empty($value)){
                     $fileName = uniqid().'-'.$value;
-                    $saveDir = $fileDir.DIRECTORY_SEPARATOR.$fileNames;
+                    $saveDir = $fileDir . DIRECTORY_SEPARATOR . $fileName;
 
                     if(move_uploaded_file($files['tmp_name'][$key], $saveDir)){
                         $fileNames[] = 'casa'.$imovelId.DIRECTORY_SEPARATOR.$fileName;

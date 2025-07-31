@@ -38,10 +38,11 @@ class ImovelDAO extends Conexao{
     }
 
     public function adicionarImagem(ImagemImovel $imagemImovel){
+        var_dump("<br>Teste de imagem" . $imagemImovel->getId());
 
         $atributos = array_keys($imagemImovel->atributosPreenchidos());
         $valores = array_values($imagemImovel->atributosPreenchidos());
-         
+
         return $this->inserir('IMAGEMIMOVEL',$atributos,$valores);
     }
 }

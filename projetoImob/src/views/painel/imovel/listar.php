@@ -90,6 +90,9 @@
                         <a href="index.php?controller=ImovelController&method=index&id=<?= $im->ID; ?>">
                             <i class="fa-solid fa-pen fonte14 fnc-azul"></i>
                         </a>
+                        <a href="index.php?controller=ImovelController&method=cadastrarImagemImovel&id=<?= $im->ID; ?>">
+                            <i class="fa-solid fa-camera fonte14 fnc-azul"></i>
+                        </a>
 
 
                     </td>
