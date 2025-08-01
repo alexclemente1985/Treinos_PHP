@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
             let isImovel = $(this).data('imovel');
 
+            console.log('teste ajax url ', urlBase)
+            console.log('teste ajax ativo ', ativo)
+
+            alert(`${urlBase} ${ativo}`)
+
             // fará uma requisição para o php para alterar os dados do ativo
             $.ajax({
                 type: "POST",

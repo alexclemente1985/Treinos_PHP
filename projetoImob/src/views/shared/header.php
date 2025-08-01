@@ -1,11 +1,10 @@
 <?php
-require_once "configurations/Formatter.php";
-$formatter = new Formatter();
 
-if (isset($controller)) {
+
+if (isset($_GET['controller'])) {
     $controller = strtolower($_GET['controller']);
 }
-if (isset($method)) {
+if (isset($_GET['method'])) {
     $method = strtolower($_GET['method']);
 }
 ?>
@@ -24,6 +23,7 @@ if (isset($method)) {
     <?php endif; ?>
     <script src="lib/js/ajax.js" type="text/javascript"></script>
     <script src="lib/js/showImage.js" type="text/javascript"></script>
+    <script src="lib/js/showMessages.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -41,20 +41,26 @@ if (isset($method)) {
             <div class="box-6">
                 <nav class="wd-100 mg-t-1">
                     <ul class="flex justify-end">
-                        <?php 
-                            if(!isset($controller)):
+                        <?php
+                        if (!isset($controller)):
                         ?>
                             <li class="mg-l-3"><a href="#inicio" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Início</a></li>
                             <li class="mg-l-3"><a href="#comprar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Comprar</a></li>
                             <li class="mg-l-3"><a href="#alugar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Alugar</a></li>
                             <li class="mg-l-3"><a href="#depoimentos" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Depoimentos</a></li>
                             <li class="mg-l-3"><a href="#contato" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Contato</a></li>
-                            <li class="mg-l-3"><a href="index.php?controller=UsuarioController&method=autenticar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
+                            <?php if (isset($_SESSION['logado'])): ?>
+                                <li class="mg-l-3"><a href="index.php?controller=PainelController&method=index" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
+                            <?php else: ?>
+                                <li class="mg-l-3"><a href="index.php?controller=UsuarioController&method=autenticar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
+                            <?php endif; ?>
                         <?php else: ?>
                             <a href="index.php" class=" mg-l-3 fnc-branco fnc-vermelho-hover espaco-letra fonte16 capitalize">Index</a>
-                            <a href="index.php?controller=UsuarioController&method=autenticar" class="mg-l-3 fnc-branco fnc-vermelho-hover espaco-letra fonte16 capitalize">Login</a>
-                        <?php endif;?>    
-                        </ul>
+                            <a
+                                href="index.php?controller=UsuarioController&method=autenticar"
+                                class="mg-l-3 fnc-branco fnc-vermelho-hover espaco-letra fonte16 capitalize">Login</a>
+                        <?php endif; ?>
+                    </ul>
                 </nav>
             </div>
         </div>

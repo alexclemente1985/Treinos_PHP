@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="mg-b-2 pd-b-1">
-                <a href="http://" class="fonte14 fnc-cinza">
+                <a href="index.php?controller=UsuarioController&method=logout" class="fonte14 fnc-cinza">
                     <i class="fa-solid fa-right-from-bracket fonte18 mg-r-1"></i>Logout
                 </a>
             </li>

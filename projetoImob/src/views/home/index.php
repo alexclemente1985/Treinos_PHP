@@ -39,40 +39,47 @@
             <h3 class="fonte22 fnc-preto-azulado fw-300 espaco-letra uppercase txt-c mg-b-4">Novas oportunidades</h3>
             <h4 class="fonte46 fnc-preto-azulado fw-300 espaco-letra uppercase txt-c mg-b-4">Comprar</h4>
         </div>
-        <div class="box-12 flex justify-center mg-t-2">
-            <div class="box-3 shadow-down pd-b-2">
-                <!-- Carregamento da imagem -->
-                <div class="box-12">
-                    <img src="lib/img/imagens/casa6.jpg" alt="">
-                </div>
-                <!-- Carregamento do endereço -->
-                <div class="box-12">
-                    <p class="fonte28 fw-bold roboto-condensed captalize espaco-letra fnc-preto-azulado pd-l-2 mg-t-2 fnc-vermelho-claro-hover">
-                        Rua dos cravos, 233 <br>
-                        <span class="fonte24 fw-300 pd-l-2 mg-t-1">São Paulo, SP</span>
-                    </p>
-                </div>
-                <!-- Carregamento do valor -->
-                <div class="box-12 pd-20">
-                    <p class="fonte22 fw-400 roboto-condensed fnc-preto-azulado mg-t-2 pd-l-2">
-                        R$ 225.000,00
-                    </p>
-                    <div class="divider"></div>
-                </div>
-                <!-- Carregamento dos detalhes -->
-                <div class="box-12 mg-t-2">
-                    <div class="box-3 txt-c"><i class="fa-solid fa-bed fonte24 fnc-cinza"></i><br><span>Quartos</span></div>
-                    <div class="box-3 txt-c"><i class="fa-solid fa-bath fonte24 fnc-cinza"></i><br><span>Banheiros</span></div>
-                    <div class="box-3 txt-c" title='metros quadrados total do imóvel'><i class="fa-regular fa-square fonte24 fnc-cinza"></i><br><span>M2</span></div>
-                    <div class="box-3 txt-c" title='metros quadrados construídos'><i class="fa-regular fa-square-minus fonte24 fnc-cinza"></i><br><span>M2 constr.</span></div>
-                </div>
-                <div class="box-12 mg-t-2">
-                    <div class="box-3 txt-c fonte16">4</i></div>
-                    <div class="box-3 txt-c fonte16">3</i></div>
-                    <div class="box-3 txt-c fonte16">500</i></div>
-                    <div class="box-3 txt-c fonte16">300</i></div>
-                </div>
-            </div>
+        <div class="box-12 flex flex-wrap justify-center mg-t-2">
+            <?php if (isset($imoveis) && count($imoveis) > 0):
+                foreach ($imoveis as $imovel):
+                    if ($imovel->FINALIDADE == 1):
+            ?>
+                        <div class="box-3 shadow-down pd-b-2">
+                            <!-- Carregamento da imagem -->
+                            <div class="box-12 imagemcapa">
+                                <img src="lib/img/upload/<?= $imovel->IMAGEMCAPA; ?>" alt="">
+                            </div>
+                            <!-- Carregamento do endereço -->
+                            <div class="box-12">
+                                <p class="fonte28 fw-bold roboto-condensed captalize espaco-letra fnc-preto-azulado pd-l-2 mg-t-2 fnc-vermelho-claro-hover">
+                                    <?= $imovel->LOGRADOURO; ?> <br>
+                                    <span class="fonte24 fw-300 pd-l-2 mg-t-1"><?= $imovel->CIDADE; ?></span>
+                                </p>
+                            </div>
+                            <!-- Carregamento do valor -->
+                            <div class="box-12 pd-20">
+                                <p class="fonte22 fw-400 roboto-condensed fnc-preto-azulado mg-t-2 pd-l-2">
+                                    <?= "R$ " . $formatter->monetaryFormatter($imovel->VALOR); ?>
+                                </p>
+                                <div class="divider"></div>
+                            </div>
+                            <!-- Carregamento dos detalhes -->
+                            <div class="box-12 mg-t-2">
+                                <div class="box-3 txt-c"><i class="fa-solid fa-bed fonte24 fnc-cinza"></i><br><span>Quartos</span></div>
+                                <div class="box-3 txt-c"><i class="fa-solid fa-bath fonte24 fnc-cinza"></i><br><span>Banheiros</span></div>
+                                <div class="box-3 txt-c" title='metros quadrados total do imóvel'><i class="fa-regular fa-square fonte24 fnc-cinza"></i><br><span>M2</span></div>
+                                <div class="box-3 txt-c" title='metros quadrados construídos'><i class="fa-regular fa-square-minus fonte24 fnc-cinza"></i><br><span>M2 constr.</span></div>
+                            </div>
+                            <div class="box-12 mg-t-2">
+                                <div class="box-3 txt-c fonte16"><?= $imovel->QUARTOS; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->BANHEIROS; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->AREATOTAL; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->AREACONSTRUIDA; ?></i></div>
+                            </div>
+                        </div>
+            <?php endif;
+                endforeach;
+            endif; ?>
         </div>
     </div>
 </section>
@@ -87,40 +94,48 @@
             <h3 class="fonte22 fnc-preto-azulado fw-300 espaco-letra uppercase txt-c mg-b-4">Novas oportunidades</h3>
             <h4 class="fonte46 fnc-preto-azulado fw-300 espaco-letra uppercase txt-c mg-b-4">Alugar</h4>
         </div>
-        <div class="box-12 flex justify-center mg-t-2">
-            <div class="box-3 shadow-down pd-b-2">
-                <!-- Carregamento da imagem -->
-                <div class="box-12">
-                    <img src="lib/img/imagens/casa6.jpg" alt="">
-                </div>
-                <!-- Carregamento do endereço -->
-                <div class="box-12">
-                    <p class="fonte28 fw-bold roboto-condensed captalize espaco-letra fnc-preto-azulado pd-l-2 mg-t-2 fnc-vermelho-claro-hover">
-                        Rua dos cravos, 233 <br>
-                        <span class="fonte24 fw-300 pd-l-2 mg-t-1">São Paulo, SP</span>
-                    </p>
-                </div>
-                <!-- Carregamento do valor -->
-                <div class="box-12 pd-20">
-                    <p class="fonte22 fw-400 roboto-condensed fnc-preto-azulado mg-t-2 pd-l-2">
-                        R$ 225.000,00
-                    </p>
-                    <div class="divider"></div>
-                </div>
-                <!-- Carregamento dos detalhes -->
-                <div class="box-12 mg-t-2">
-                    <div class="box-3 txt-c"><i class="fa-solid fa-bed fonte24 fnc-cinza"></i><br><span>Quartos</span></div>
-                    <div class="box-3 txt-c"><i class="fa-solid fa-bath fonte24 fnc-cinza"></i><br><span>Banheiros</span></div>
-                    <div class="box-3 txt-c" title='metros quadrados total do imóvel'><i class="fa-regular fa-square fonte24 fnc-cinza"></i><br><span>M2</span></div>
-                    <div class="box-3 txt-c" title='metros quadrados construídos'><i class="fa-regular fa-square-minus fonte24 fnc-cinza"></i><br><span>M2 constr.</span></div>
-                </div>
-                <div class="box-12 mg-t-2">
-                    <div class="box-3 txt-c fonte16">4</i></div>
-                    <div class="box-3 txt-c fonte16">3</i></div>
-                    <div class="box-3 txt-c fonte16">500</i></div>
-                    <div class="box-3 txt-c fonte16">300</i></div>
-                </div>
-            </div>
+        <div class="box-12 flex flex-wrap justify-center mg-t-2">
+            <?php if (isset($imoveis) && count($imoveis) > 0):
+                foreach ($imoveis as $imovel):
+                    if ($imovel->FINALIDADE == 2):
+            ?>
+                        <div class="box-3 shadow-down pd-b-2 mg-b-4">
+                            <!-- Carregamento da imagem -->
+                            <div class="box-12 imagemcapa">
+                                <img src="lib/img/upload/<?= $imovel->IMAGEMCAPA; ?>" alt="">
+                            </div>
+                            <!-- Carregamento do endereço -->
+                            <div class="box-12">
+                                <p class="fonte28 fw-bold roboto-condensed captalize espaco-letra fnc-preto-azulado pd-l-2 mg-t-2 fnc-vermelho-claro-hover">
+                                    <?= $imovel->LOGRADOURO; ?> <br>
+                                    <span class="fonte24 fw-300 pd-l-2 mg-t-1"><?= $imovel->CIDADE; ?></span>
+                                </p>
+                            </div>
+                            <!-- Carregamento do valor -->
+                            <div class="box-12 pd-20">
+                                <p class="fonte22 fw-400 roboto-condensed fnc-preto-azulado mg-t-2 pd-l-2">
+                                    <?= "R$ " . $imovel->VALOR; ?>
+                                </p>
+                                </p>
+                                <div class="divider"></div>
+                            </div>
+                            <!-- Carregamento dos detalhes -->
+                            <div class="box-12 mg-t-2">
+                                <div class="box-3 txt-c"><i class="fa-solid fa-bed fonte24 fnc-cinza"></i><br><span>Quartos</span></div>
+                                <div class="box-3 txt-c"><i class="fa-solid fa-bath fonte24 fnc-cinza"></i><br><span>Banheiros</span></div>
+                                <div class="box-3 txt-c" title='metros quadrados total do imóvel'><i class="fa-regular fa-square fonte24 fnc-cinza"></i><br><span>M2</span></div>
+                                <div class="box-3 txt-c" title='metros quadrados construídos'><i class="fa-regular fa-square-minus fonte24 fnc-cinza"></i><br><span>M2 constr.</span></div>
+                            </div>
+                            <div class="box-12 mg-t-2">
+                                <div class="box-3 txt-c fonte16"><?= $imovel->QUARTOS; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->BANHEIROS; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->AREATOTAL; ?></i></div>
+                                <div class="box-3 txt-c fonte16"><?= $imovel->AREACONSTRUIDA; ?></i></div>
+                            </div>
+                        </div>
+            <?php endif;
+                endforeach;
+            endif; ?>
         </div>
     </div>
 </section>
@@ -216,12 +231,12 @@
 
                 <div class="box-6">
                     <label for="">Nome</label>
-                    <input type="text" name="nome">
+                    <input type="text" name="nome" required>
                 </div>
 
                 <div class="box-6">
                     <label for="">Sobrenome</label>
-                    <input type="text" name="sobrenome">
+                    <input type="text" name="sobrenome" required>
                 </div>
 
                 <div class="box-12">
@@ -230,10 +245,10 @@
                 </div>
 
                 <div class="box-12 flex justify-start">
-                    <div class="box-3 flex justify-start"> <label for="" >Interesse</label> </div>
+                    <div class="box-3 flex justify-start"> <label for="">Interesse</label> </div>
                     <div class="box-4 flex justify-start"> <span>Comprar</span> <input type="radio" name="interesse" value="COMPRAR"> </div>
-                    <div class="box-4 flex justify-start"> <span>Alugar</span> <input type="radio" name="interesse"  value="ALUGAR"> </div>               
-                    
+                    <div class="box-4 flex justify-start"> <span>Alugar</span> <input type="radio" name="interesse" value="ALUGAR"> </div>
+
                 </div>
 
                 <div class="box-12">

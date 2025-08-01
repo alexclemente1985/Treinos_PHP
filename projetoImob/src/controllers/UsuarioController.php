@@ -111,7 +111,7 @@ class UsuarioController extends Notification
             if($this->usuarioService->autenticarUsuario($usuario,$senha)){
                 header('location:index.php?controller=PainelController&method=index');
             }
-            
+
 
             // $dadosUsuario = $this->usuarioDAO->autenticar($usuario);
 
@@ -143,7 +143,6 @@ class UsuarioController extends Notification
         if($this->usuarioService->logoutUsuario()){
             header('location:index.php');
         }
-        
     }
     }
 ?>

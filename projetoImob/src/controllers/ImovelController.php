@@ -116,7 +116,6 @@ class ImovelController extends Notification{
     function alterarStatus()
     {
         if ($_POST) {
-            var_dump($_POST);
             $this->atualizar($_POST, $_FILES);
         }
     }

@@ -5,7 +5,6 @@
 
     public function __construct(UsuarioDAO $usuarioDAO)
     {
-        session_start();
         $this->usuarioDAO = $usuarioDAO;
     }
 
@@ -14,7 +13,7 @@
         $this->usuario = new Usuario();
         $dados['imagem'] = $imagem;
         $dados['datacadastro'] = date('Y-m-d H:i:s', time());
-        
+
         foreach($dados as $key=>$value){
             if($key == 'senha'){
                 $value = password_hash($value, PASSWORD_BCRYPT);
@@ -46,9 +45,9 @@
 
     public function autenticarUsuario($nome, $senha){
         $dadosUsuario = $this->usuarioDAO->autenticar($nome);
-        
-        //if(!empty($dadosUsuario) && password_verify($senha, $dadosUsuario[0]->SENHA)){
-        if(!empty($dadosUsuario)){    
+
+        if (!empty($dadosUsuario) && password_verify($senha, $dadosUsuario[0]->SENHA)) {
+            //if (!empty($dadosUsuario)) {
             $this->gerarSessaoUsuario($dadosUsuario);
             return true;
             //header('location:index.php?controller=PainelController&method=index');
@@ -59,6 +58,7 @@
         $_SESSION['id'] = $usuario[0]->ID;
         $_SESSION['nome'] = $usuario[0]->NOME;
         $_SESSION['imagem'] = $usuario[0]->IMAGEM;
+        $_SESSION['logado'] = true;
     }
 
     public function logoutUsuario(){

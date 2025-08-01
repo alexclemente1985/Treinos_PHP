@@ -65,7 +65,7 @@ class Conexao{
         #?-> evita o SQL INJECTION
         $set = implode(",", array_map(fn($campo)=>"$campo = ?", $campos));
         $sql = "UPDATE {$tabela} SET {$set} WHERE ID = ? ";
-
+        $_SESSION['TESTE_ATUALIZAR_DAO'] = $sql . " ID-> " . $id;
         #array_merge -> permite a junção de dois arrays diferentes
         $statement = $this->executarConsulta($sql, array_merge($valores, [$id]));
 
