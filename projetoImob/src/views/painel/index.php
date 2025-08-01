@@ -10,7 +10,12 @@
         <section class="carregamento">
             <div class="box-10 bg-branco pb-b-4">
                 <?php require_once "Views/painel/components/painelHeader.php";?>
+                <?php if(isset($_SESSION)): ?>
+                    <?= "Olá ".$_SESSION['nome']."! Você está autenticado!";?>
+                    <div class="divider mg-t-1 mg-b-2"></div>
+                <?php endif;?>
                 <?php if(isset($controller) && isset($method)){
+                
                     if($controller == 'painel' && $method == 'index'){
                         require_once "views/painel/main/" . $method . ".php";
                     } else if (($method != 'deletar')

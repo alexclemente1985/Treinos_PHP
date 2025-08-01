@@ -1,5 +1,5 @@
 <?php
-require_once "interfaces/PagamentoInterface.php";
+//require_once "interfaces/PagamentoInterface.php";
 
 abstract class Notification{
     

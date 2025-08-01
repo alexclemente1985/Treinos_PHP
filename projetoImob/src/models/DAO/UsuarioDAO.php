@@ -31,5 +31,9 @@ require_once "models/Conexao.php";
     {
         return $this->deletar('USUARIO', $id);
     }
+
+    public function autenticar($usuario){
+        return $this->listar('USUARIO',"WHERE USUARIO = '".$usuario."'");
+    }
     }
 ?>

@@ -101,10 +101,49 @@ class UsuarioController extends Notification
 
     public function autenticar()
     {
-        #REQUEST METHOD permite pegar um post após um direcionamento via get
-        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // }
         require_once "views/painel/usuario/autenticar.php";
+
+        #REQUEST METHOD permite pegar um post após um direcionamento via get
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $usuario = $_POST['usuario'] ?? '';
+            $senha = $_POST['senha'] ?? '';
+
+            if($this->usuarioService->autenticarUsuario($usuario,$senha)){
+                header('location:index.php?controller=PainelController&method=index');
+            }
+            
+
+            // $dadosUsuario = $this->usuarioDAO->autenticar($usuario);
+
+            // if(!empty($dadosUsuario) && password_verify($senha, $dadosUsuario[0]->SENHA)){
+            //     $this->gerarSessao($dadosUsuario);
+            //     header('location:index.php?controller=PainelController&method=index');
+            // }
+            else{
+                $this->showMessage(
+                    'Usuario ou senha incorreto!',
+                    'UsuarioController',
+                    'autenticar',
+                    '',
+                    false,
+                    true
+                );
+            }
+        }
+    }
+    // public function gerarSessao($usuario){
+    //     $_SESSION['id'] = $usuario[0]->ID;
+    //     $_SESSION['nome'] = $usuario[0]->NOME;
+    //     $_SESSION['imagem'] = $usuario[0]->IMAGEM;
+    // }
+
+    public function logout(){
+        // $_SESSION = [];
+        // session_destroy();
+        if($this->usuarioService->logoutUsuario()){
+            header('location:index.php');
+        }
+        
     }
     }
 ?>

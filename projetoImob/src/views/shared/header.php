@@ -41,13 +41,20 @@ if (isset($method)) {
             <div class="box-6">
                 <nav class="wd-100 mg-t-1">
                     <ul class="flex justify-end">
-                        <li class="mg-l-3"><a href="#inicio" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Início</a></li>
-                        <li class="mg-l-3"><a href="#comprar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Comprar</a></li>
-                        <li class="mg-l-3"><a href="#alugar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Alugar</a></li>
-                        <li class="mg-l-3"><a href="#depoimentos" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Depoimentos</a></li>
-                        <li class="mg-l-3"><a href="#contato" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Contato</a></li>
-                        <li class="mg-l-3"><a href="index.php?controller=UsuarioController&method=autenticar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
-                    </ul>
+                        <?php 
+                            if(!isset($controller)):
+                        ?>
+                            <li class="mg-l-3"><a href="#inicio" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Início</a></li>
+                            <li class="mg-l-3"><a href="#comprar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Comprar</a></li>
+                            <li class="mg-l-3"><a href="#alugar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Alugar</a></li>
+                            <li class="mg-l-3"><a href="#depoimentos" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Depoimentos</a></li>
+                            <li class="mg-l-3"><a href="#contato" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Contato</a></li>
+                            <li class="mg-l-3"><a href="index.php?controller=UsuarioController&method=autenticar" class="fnc-branco fnc-vermelho-hover espaco-letra fonte16">Login</a></li>
+                        <?php else: ?>
+                            <a href="index.php" class=" mg-l-3 fnc-branco fnc-vermelho-hover espaco-letra fonte16 capitalize">Index</a>
+                            <a href="index.php?controller=UsuarioController&method=autenticar" class="mg-l-3 fnc-branco fnc-vermelho-hover espaco-letra fonte16 capitalize">Login</a>
+                        <?php endif;?>    
+                        </ul>
                 </nav>
             </div>
         </div>

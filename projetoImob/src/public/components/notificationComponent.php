@@ -26,9 +26,8 @@ function errorHandler(bool $error)
 function msgHandler(string $msg, bool $error)
 {
     if ($error) {
-        return "Falha na operação.";
+        return $msg;
     }
-    return $msg;
 }
 
 function goBack(){
